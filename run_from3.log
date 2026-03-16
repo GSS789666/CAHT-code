@@ -1,0 +1,136 @@
+============================================================
+CAHT V2 ¡ª Full Experiment Pipeline
+Device: cpu
+Resuming from Step 3
+NOTE: train=300/scale(aug4x=1200), ALNS=3s, SL=30ep, RL=15ep, CPU-only
+============================================================
+
+============================================================
+STEP 3: Train POMO baseline
+============================================================
+POMO parameters: 712,192
+POMO training instances: 3600
+  POMO Epoch 1/30, avg_reward=-1949.54
+  POMO Epoch 2/30, avg_reward=-1873.35
+  POMO Epoch 4/30, avg_reward=-1860.16
+  POMO Epoch 6/30, avg_reward=-1853.19
+  POMO Epoch 8/30, avg_reward=-1867.10
+  POMO Epoch 10/30, avg_reward=-1841.37
+  POMO Epoch 12/30, avg_reward=-1846.70
+  POMO Epoch 14/30, avg_reward=-1840.77
+  POMO Epoch 16/30, avg_reward=-1828.14
+  POMO Epoch 18/30, avg_reward=-1823.46
+  POMO Epoch 20/30, avg_reward=-1816.76
+  POMO Epoch 22/30, avg_reward=-1812.10
+  POMO Epoch 24/30, avg_reward=-1817.53
+  POMO Epoch 26/30, avg_reward=-1810.15
+  POMO Epoch 28/30, avg_reward=-1806.76
+  POMO Epoch 30/30, avg_reward=-1810.70
+
+============================================================
+STEP 4: Train CAHT Stage I (SL)
+============================================================
+CAHT parameters: 914,080
+Training instances: 3600
+  Epoch 1/30, loss=7.7475 (assign=1.6796, seq=12.1358), lr=0.000100, time=279s
+  Epoch 2/30, loss=7.6169 (assign=1.6242, seq=11.9854), lr=0.000099, time=280s
+  Epoch 4/30, loss=7.5862 (assign=1.6082, seq=11.9558), lr=0.000096, time=284s
+  Epoch 6/30, loss=7.5764 (assign=1.6037, seq=11.9453), lr=0.000090, time=310s
+  Epoch 8/30, loss=7.5683 (assign=1.5993, seq=11.9380), lr=0.000083, time=317s
+  Epoch 10/30, loss=7.5617 (assign=1.5966, seq=11.9301), lr=0.000075, time=279s
+  Epoch 12/30, loss=7.5563 (assign=1.5948, seq=11.9231), lr=0.000065, time=280s
+  Epoch 14/30, loss=7.5509 (assign=1.5918, seq=11.9181), lr=0.000055, time=277s
+  Epoch 16/30, loss=7.5480 (assign=1.5904, seq=11.9152), lr=0.000045, time=277s
+  Epoch 18/30, loss=7.5449 (assign=1.5882, seq=11.9133), lr=0.000035, time=273s
+  Epoch 20/30, loss=7.5434 (assign=1.5874, seq=11.9120), lr=0.000025, time=278s
+  Epoch 22/30, loss=7.5420 (assign=1.5865, seq=11.9111), lr=0.000017, time=277s
+  Epoch 24/30, loss=7.5411 (assign=1.5856, seq=11.9109), lr=0.000010, time=279s
+  Epoch 26/30, loss=7.5422 (assign=1.5860, seq=11.9123), lr=0.000004, time=284s
+  Epoch 28/30, loss=7.5425 (assign=1.5856, seq=11.9138), lr=0.000001, time=278s
+  Epoch 30/30, loss=7.5439 (assign=1.5865, seq=11.9146), lr=0.000000, time=278s
+SL training done. Best loss: 7.5411
+
+============================================================
+STEP 5: Train CAHT Stage II (RL)
+============================================================
+  RL Epoch 1/15, reward=-1138.60, scale=S, loss=-9043.3789
+  RL Epoch 2/15, reward=-1258.31, scale=S, loss=-14681.6115
+  RL Epoch 4/15, reward=-1290.73, scale=S, loss=-9408.6136
+  RL Epoch 6/15, reward=-2118.99, scale=M, loss=-44870.4949
+  RL Epoch 8/15, reward=-1133.25, scale=S, loss=-8250.1879
+  RL Epoch 10/15, reward=-3142.84, scale=L, loss=-145479.5145
+  RL Epoch 12/15, reward=-2279.75, scale=M, loss=-49079.4865
+  RL Epoch 14/15, reward=-2164.95, scale=M, loss=-46456.9407
+RL training done. Best reward: -1133.25
+
+============================================================
+STEP 6: Evaluate all methods
+============================================================
+
+  Evaluating S scale (50 instances)...
+    Nearest Greedy...
+    ALNS (from labels)...
+    OR-Tools...
+    POMO...
+    CAHT (SL)...
+    CAHT (SL+RL)...
+
+  Evaluating M scale (50 instances)...
+    Nearest Greedy...
+    ALNS (from labels)...
+    OR-Tools...
+    POMO...
+    CAHT (SL)...
+    CAHT (SL+RL)...
+
+  Evaluating L scale (50 instances)...
+    Nearest Greedy...
+    ALNS (from labels)...
+    OR-Tools...
+    POMO...
+    CAHT (SL)...
+    CAHT (SL+RL)...
+  Saved table2a_s_results.csv
+  Saved table2b_m_results.csv
+  Saved table2c_l_results.csv
+
+============================================================
+STEP 7: Ablation study
+============================================================
+  Full model (SL+RL)...
+  w/o RL...
+  w/o dynamic masking...
+  w/o spatial bias...
+  MLP encoder...
+  Saved table3_ablation.csv
+
+============================================================
+STEP 8: Generalization experiment
+============================================================
+  Saved table4_generalization.csv
+
+============================================================
+STEP 9: Latency breakdown
+============================================================
+  Saved table5_latency_breakdown.csv
+
+============================================================
+STEP 10: Online simulation
+============================================================
+  Saved table6_online_simulation.csv
+
+============================================================
+STEP 11: Inference time scaling curve
+============================================================
+  N=5, M=50 (N+M=55)...
+  N=10, M=100 (N+M=110)...
+  N=15, M=150 (N+M=165)...
+  N=20, M=200 (N+M=220)...
+  N=25, M=250 (N+M=275)...
+  N=30, M=300 (N+M=330)...
+  Saved fig2_scaling_curve.png
+
+============================================================
+ALL DONE! Total time: 276.0 minutes
+Outputs saved to: C:\Users\hitey\Desktop\caht_v2\outputs
+============================================================
