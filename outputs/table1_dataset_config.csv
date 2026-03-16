@@ -1,0 +1,6 @@
+"# train=300/scale(aug4x=1200), ALNS=3s, SL=30ep, RL=15ep, CPU-only"
+Scale,N(robots),M(tasks),Train,Train(aug),Val,Test,ALNS_Obj,ALNS_CVR(%),ALNS_TW_Sat(%)
+S,5,50,300,1200,50,50,1001.31,0.7,99.3
+M,10,100,300,1200,50,50,1781.50,1.9,98.1
+L,15,150,300,1200,50,50,2575.41,3.5,96.5
+XL,20,200,0,—,—,50,3431.36,4.6,95.4

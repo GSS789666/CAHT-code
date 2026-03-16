@@ -1,0 +1,6 @@
+"# train=300/scale(aug4x=1200), ALNS=3s, SL=30ep, RL=15ep, CPU-only"
+Test_Scale,Obj,Gap_vs_ALNS(%),CVR(%),TW_Sat(%)
+S,1131.16,13.0,4.9,95.1
+M,1997.09,12.1,4.9,95.1
+L,2867.04,11.3,5.7,94.3
+XL,3797.71,10.7,6.3,93.7

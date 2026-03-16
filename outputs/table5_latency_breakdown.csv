@@ -1,0 +1,4 @@
+Scale,Embedding(ms),Encoder(ms),Assign_Dec(ms),Seq_Dec(ms),Total(ms)
+S,0.18,2.81,13.01,7.44,23.44
+M,0.19,5.57,35.74,14.55,56.04
+L,0.23,9.79,68.14,21.92,100.08

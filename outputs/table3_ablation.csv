@@ -1,0 +1,7 @@
+"# train=300/scale(aug4x=1200), ALNS=3s, SL=30ep, RL=15ep, CPU-only"
+Variant,Obj,ΔObj(%),CVR(%),TW_Sat(%),Time(ms)
+CAHT Full,1997.09,+0.0,4.9,95.1,54.8
+w/o RL,1947.91,-2.5,4.0,96.0,59.1
+w/o mask,6250.03,+213.0,79.9,70.1,62.0
+w/o spatial,1936.19,-3.0,4.2,95.8,57.4
+MLP encoder,3726.64,+86.6,46.8,86.5,52.1

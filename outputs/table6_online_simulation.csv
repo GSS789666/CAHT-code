@@ -1,0 +1,5 @@
+Method,Completed,TW_Sat(%),Avg_Wait(s),Throughput(tasks/min),Solve_Time(ms)
+Nearest Greedy,93,98.9,5.0,18.60,0.1
+ALNS(1s),93,93.5,5.0,18.60,304.9
+POMO,93,30.1,5.0,18.60,1.5
+CAHT,93,61.3,5.0,18.60,3.9
